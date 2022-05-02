@@ -1,0 +1,5 @@
+-- DROP DATABASE
+DROP DATABASE IF EXISTS study_notes_db;
+
+-- CREATE DATABASE
+CREATE DATABASE study_notes_db;
