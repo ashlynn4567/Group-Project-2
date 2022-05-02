@@ -1,5 +1,5 @@
 // Import bcrypt to hash passwords
-const bcrypt = requier("bcrypt");
+const bcrypt = require("bcrypt");
 
 // Import the Model class and DataTypes object from Sequelize
 const { Model, DataTypes } = require("sequelize");

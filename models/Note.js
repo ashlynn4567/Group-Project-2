@@ -19,7 +19,7 @@ Note.init(
       },
     },
     answer: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1],
@@ -35,6 +35,7 @@ Note.init(
   },
   {
     sequelize,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "note",

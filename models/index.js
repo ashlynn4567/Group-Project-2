@@ -7,7 +7,7 @@ const Note = require("./Note");
 // associations between tables
 
 // creates the reference for the id column in the User model to link to the corresponding foreign key pair, which is the user_id in the Notebook model.
-User.hasMany(Post, {
+User.hasMany(Notebook, {
   foreignKey: "user_id",
 });
 
