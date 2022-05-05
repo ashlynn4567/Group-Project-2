@@ -1,0 +1,21 @@
+.btn {
+    font-size: 1.3rem;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    width: 100%;
+    margin: 5px 0;
+    border-radius: var(--border-radius);
+    border: none;
+    color: var(--dark);
+    outline: none;
+    background-color: blue;
+  }
+  
+  .btn:hover {
+    color: var(--light);
+    background-color: var(--tertiary);
+  }
+  
+  .btn-inline {
+    display: inline;
+  }
