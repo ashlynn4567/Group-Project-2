@@ -56,7 +56,7 @@ router.get("notebooks/:id", (req, res) => {
       }
       const notebook = notebookData.get({ plain: true });
 
-      res.render("single-notebook", {
+      res.render("view-notebook", {
         notebook,
         loggedIn: req.session.loggedIn,
       });
