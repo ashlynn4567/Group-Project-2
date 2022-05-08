@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
@@ -30,5 +31,8 @@
   },
   "devDependencies": {
     "mocha": "^9.2.2"
+  },
+  "directories": {
+    "test": "test"
   }
 }
