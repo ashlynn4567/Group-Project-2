@@ -1,13 +1,16 @@
 <section>
   <h2>Explore Notebooks</h2>
-        <div class="notebooks" id="user-notebooks">
-            {{#each notebooks}}
-          <article class="notebook">
-            <a class="single-user-notebook" href="/notebooks/{{id}}">
-              <span>{{notebook_name}}</span>
-              <span>{{user.user_name}} on {{format_date created_at}}</span>
-            </a>
-          </article>
-          {{/each}}
-        </div>
+  <div class="notebooks" id="user-notebooks">
+    {{#each notebooks}}
+      <article class="notebook">
+        <a class="single-user-notebook" href="/notebooks/{{id}}">
+          <span>{{notebook_name}}</span>
+          <span>created by
+            {{user.user_name}}
+            on
+            {{format_date created_at}}</span>
+        </a>
+      </article>
+    {{/each}}
+  </div>
 </section>
