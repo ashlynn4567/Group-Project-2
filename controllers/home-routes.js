@@ -5,11 +5,7 @@ const { User, Notebook, Note } = require("../models");
 // get all notebooks for homepage
 router.get("/", (req, res) => {
   Notebook.findAll({
-    attributes: [
-      "id",
-      "notebook_name",
-      "created_at",
-    ],
+    attributes: ["id", "notebook_name", "created_at"],
     include: [
       {
         model: User,
@@ -18,7 +14,9 @@ router.get("/", (req, res) => {
     ],
   })
     .then((notebookData) => {
-      const notebooks = notebookData.map((notebook) => notebook.get({ plain: true }));
+      const notebooks = notebookData.map((notebook) =>
+        notebook.get({ plain: true })
+      );
 
       res.render("homepage", {
         notebooks,

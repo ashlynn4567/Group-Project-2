@@ -25,26 +25,26 @@
       <nav>
         <ul class="list">
           {{#if loggedIn}}
-          <li>
-            <a href="/mynotebooks" class="link">My Notebooks</a>
-          </li>
-          <li>
-            <a href="#" class="link" id="logout">Log Out</a>
-          </li>
-          {{#else}}
-          <li>
-            <a href="/login" class="link">Log In</a>
-          </li>
+            <li>
+              <a href="/mynotebooks" class="link">My Notebooks</a>
+            </li>
+            <li>
+              <a href="#" class="link" id="logout">Log Out</a>
+            </li>
+          {{else}}
+            <li>
+              <a href="/login" class="link">Log In</a>
+            </li>
+          {{/if}}
         </ul>
       </nav>
     </header>
 
     <main class="container-fluid mx-auto">
-      {{{ body }}}
+      {{{body}}}
     </main>
   </body>
 </html>
-
-{{#if loggedIn}}
-  {{!-- <script src="/javascript/logout.js"></script> --}}
-{{/if}}
+{{! #if loggedIn }}
+{{! <script src="/javascript/logout.js"></script> }}
+{{! /if }}

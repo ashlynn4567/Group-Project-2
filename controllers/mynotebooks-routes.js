@@ -23,7 +23,7 @@ router.get("/", (req, res) => {
       const notebooks = notebookData.map((notebook) =>
         notebook.get({ plain: true })
       );
-      res.render("my-notebooks", { notebooks, loggedIn: true });
+      res.render("mynotebooks", { notebooks, loggedIn: true });
     })
     .catch((err) => {
       console.log(err);
