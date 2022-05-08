@@ -1,8 +1,8 @@
 async function loginFormHandler(event) {
   event.preventDefault();
 
-  const email = document.querySelector("#email-login").value.trim();
-  const password = document.querySelector("#password-login").value.trim();
+  const email = document.querySelector("#email").value.trim();
+  const password = document.querySelector("#password").value.trim();
 
   if (email && password) {
     const response = await fetch("/api/users/login", {
@@ -15,7 +15,8 @@ async function loginFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.replace("/notebooks/");
+      // ask alex about this
+      document.location.replace("/mynotebooks/");
     } else {
       alert(response.statusText);
     }
@@ -41,16 +42,17 @@ async function signupFormHandler(event) {
     });
 
     if (response.ok) {
+      // ask alex about this
       document.location.replace("/notebooks/");
     } else {
       alert(response.statusText);
-    }
-  }
-}
+    };
+  };
+};
 
 document
-  .querySelector(".login-form")
+  .querySelector("#login-form")
   .addEventListener("submit", loginFormHandler);
 document
-  .querySelector(".signup-form")
+  .querySelector("#signup-form")
   .addEventListener("submit", signupFormHandler);
