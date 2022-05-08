@@ -1,14 +1,14 @@
 async function newFormHandler(event) {
     event.preventDefault();
   
-    const title = document.querySelector('input[name="post-title"]').value;
-    const post_url = document.querySelector('input[name="post-url"]').value;
+    const title = document.querySelector('input[name="notebook-title"]').value;
+    const notebook_url = document.querySelector('input[name="notebook-url"]').value;
   
-    const response = await fetch(`/api/posts`, {
+    const response = await fetch(`/api/notebooks`, {
       method: 'POST',
       body: JSON.stringify({
         title,
-        post_url
+        notebook_url
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -22,5 +22,5 @@ async function newFormHandler(event) {
     }
   }
   
-  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+  document.querySelector('.new-notebook-form').addEventListener('submit', newFormHandler);
   
