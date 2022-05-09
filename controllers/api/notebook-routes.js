@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((notebookData) => res.json(notebookData))
+    .then((dbNotebookData) => res.json(dbNotebookData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -41,12 +41,12 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-    .then((notebookData) => {
-      if (!notebookData) {
+    .then((dbNotebookData) => {
+      if (!dbNotebookData) {
         res.status(404).json({ message: "No notebook found with this id" });
         return;
       }
-      res.json(notebookData);
+      res.json(dbNotebookData);
     })
     .catch((err) => {
       console.log(err);
@@ -61,7 +61,7 @@ router.post("/", (req, res) => {
     notebook_name: req.body.notebook_name,
     user_id: req.session.user_id,
   })
-    .then((notebookData) => res.json(notebookData))
+    .then((dbNotebookData) => res.json(dbNotebookData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -81,12 +81,12 @@ router.put("/:id", (req, res) => {
       },
     }
   )
-    .then((notebookData) => {
-      if (!notebookData) {
+    .then((dbNotebookData) => {
+      if (!dbNotebookData) {
         res.status(404).json({ message: "No notebook found with this id" });
         return;
       }
-      res.json(notebookData);
+      res.json(dbNotebookData);
     })
     .catch((err) => {
       console.log(err);
@@ -101,12 +101,12 @@ router.delete("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((notebookData) => {
-      if (!notebookData) {
+    .then((dbNotebookData) => {
+      if (!dbNotebookData) {
         res.status(404).json({ message: "No notebook found with this id" });
         return;
       }
-      res.json(notebookData);
+      res.json(dbNotebookData);
     })
     .catch((err) => {
       console.log(err);

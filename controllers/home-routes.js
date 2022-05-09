@@ -13,8 +13,8 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((notebookData) => {
-      const notebooks = notebookData.map((notebook) =>
+    .then((dbNotebookData) => {
+      const notebooks = dbNotebookData.map((notebook) =>
         notebook.get({ plain: true })
       );
 
@@ -47,12 +47,12 @@ router.get("notebooks/:id", (req, res) => {
       },
     ],
   })
-    .then((notebookData) => {
-      if (!notebookData) {
+    .then((dbNotebookData) => {
+      if (!dbNotebookData) {
         res.status(404).json({ message: "No notebook found with this id" });
         return;
       }
-      const notebook = notebookData.get({ plain: true });
+      const notebook = dbNotebookData.get({ plain: true });
 
       res.render("view-notebook", {
         notebook,
