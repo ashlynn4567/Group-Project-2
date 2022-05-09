@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { User, Notebook, Note } = require("../models");
+const withAuth = require("../utils/auth");
 
 // get all notebooks for My Notebooks
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
   Notebook.findAll({
     where: {
       user_id: req.session.user_id,
@@ -19,8 +20,8 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((notebookData) => {
-      const notebooks = notebookData.map((notebook) =>
+    .then((dbNotebookData) => {
+      const notebooks = dbNotebookData.map((notebook) =>
         notebook.get({ plain: true })
       );
       res.render("mynotebooks", { notebooks, loggedIn: true });
@@ -32,7 +33,7 @@ router.get("/", (req, res) => {
 });
 
 // get a single notebook (view notebook)
-router.get("notebooks/:id", (req, res) => {
+router.get("/notebooks/:id", withAuth, (req, res) => {
   Notebook.findOne({
     where: {
       id: req.params.id,
@@ -49,12 +50,12 @@ router.get("notebooks/:id", (req, res) => {
       },
     ],
   })
-    .then((notebookData) => {
-      if (!notebookData) {
+    .then((dbNotebookData) => {
+      if (!dbNotebookData) {
         res.status(404).json({ message: "No notebook found with this id" });
         return;
       }
-      const notebook = notebookData.get({ plain: true });
+      const notebook = dbNotebookData.get({ plain: true });
 
       res.render("view-notebook", {
         notebook,
@@ -68,7 +69,7 @@ router.get("notebooks/:id", (req, res) => {
 });
 
 // edit notebook
-router.get("/edit/:id", (req, res) => {
+router.get("/edit/:id", withAuth, (req, res) => {
   Notebook.findByPk(req.params.id, {
     attributes: ["id", "notebook_name", "created_at"],
     include: [
@@ -82,9 +83,9 @@ router.get("/edit/:id", (req, res) => {
       },
     ],
   })
-    .then((notebookData) => {
-      if (notebookData) {
-        const notebook = notebookData.get({ plain: true });
+    .then((dbNotebookData) => {
+      if (dbNotebookData) {
+        const notebook = dbNotebookData.get({ plain: true });
 
         res.render("edit-notebook", {
           notebook,

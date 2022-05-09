@@ -1,5 +1,5 @@
-<section class="form">
-  <div class="login-form">
+<section>
+  <div class="form">
     <h3>Create New Notebook</h3>
 
     <form id="new-notebook-form">
@@ -71,18 +71,18 @@
 </section>
 
 {{#if notebooks.length}}
-<section>
-  <h2>My Notebooks</h2>
-        <div class="notebooks" id="user-notebooks">
-            {{#each notebooks}}
-          <article class="notebook">
-            <a class="single-user-notebook" href="/notebooks/{{id}}">
-              <span>{{notebook_name}}</span>
-            </a>
-          </article>
-          {{/each}}
-        </div>
-</section>
-{{#/if}}
+  <section>
+    <h2>My Notebooks</h2>
+    <div class="notebooks" id="user-notebooks">
+      {{#each notebooks}}
+        <article class="notebook">
+          <a class="single-user-notebook" href="/notebooks/edit/{{id}}">
+            <span>{{notebook_name}}</span>
+          </a>
+        </article>
+      {{/each}}
+    </div>
+  </section>
+{{/if}}
 
-{{!-- <script src="/javascript/add-notebook.js"></script> --}}
+<script src="/javascript/add-notebook.js"></script>

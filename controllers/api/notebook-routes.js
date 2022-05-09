@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Notebook, User, Note } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // get all notebooks
 router.get("/", (req, res) => {
@@ -16,7 +17,7 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((notebookData) => res.json(notebookData))
+    .then((dbNotebookData) => res.json(dbNotebookData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -41,12 +42,12 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-    .then((notebookData) => {
-      if (!notebookData) {
+    .then((dbNotebookData) => {
+      if (!dbNotebookData) {
         res.status(404).json({ message: "No notebook found with this id" });
         return;
       }
-      res.json(notebookData);
+      res.json(dbNotebookData);
     })
     .catch((err) => {
       console.log(err);
@@ -55,13 +56,13 @@ router.get("/:id", (req, res) => {
 });
 
 // create new notebook
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
   // expects {notebook_name: 'Spanish Numbers', user_id: 1}
   Notebook.create({
     notebook_name: req.body.notebook_name,
     user_id: req.session.user_id,
   })
-    .then((notebookData) => res.json(notebookData))
+    .then((dbNotebookData) => res.json(dbNotebookData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -69,7 +70,7 @@ router.post("/", (req, res) => {
 });
 
 // edit notebook title
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   // expects {notebook_name: 'Spanish Animals'}
   Notebook.update(
     {
@@ -81,12 +82,12 @@ router.put("/:id", (req, res) => {
       },
     }
   )
-    .then((notebookData) => {
-      if (!notebookData) {
+    .then((dbNotebookData) => {
+      if (!dbNotebookData) {
         res.status(404).json({ message: "No notebook found with this id" });
         return;
       }
-      res.json(notebookData);
+      res.json(dbNotebookData);
     })
     .catch((err) => {
       console.log(err);
@@ -95,18 +96,18 @@ router.put("/:id", (req, res) => {
 });
 
 // delete notebook
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   Notebook.destroy({
     where: {
       id: req.params.id,
     },
   })
-    .then((notebookData) => {
-      if (!notebookData) {
+    .then((dbNotebookData) => {
+      if (!dbNotebookData) {
         res.status(404).json({ message: "No notebook found with this id" });
         return;
       }
-      res.json(notebookData);
+      res.json(dbNotebookData);
     })
     .catch((err) => {
       console.log(err);

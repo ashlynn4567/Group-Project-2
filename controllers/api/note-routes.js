@@ -4,7 +4,7 @@ const { Note, Notebook, User } = require("../../models");
 // get all notes
 router.get("/", (req, res) => {
   Note.findAll()
-    .then((noteData) => res.json(noteData))
+    .then((dbNoteData) => res.json(dbNoteData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -29,12 +29,12 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-    .then((noteData) => {
-      if (!noteData) {
+    .then((dbNoteData) => {
+      if (!dbNoteData) {
         res.status(404).json({ message: "No note found with this id " });
         return;
       }
-      res.json(noteData);
+      res.json(dbNoteData);
     })
     .catch((err) => {
       console.log(err);
@@ -50,7 +50,7 @@ router.post("/", (req, res) => {
     answer: req.body.answer,
     notebook_id: req.body.notebook_id,
   })
-    .then((noteData) => res.json(noteData))
+    .then((dbNoteData) => res.json(dbNoteData))
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
@@ -71,12 +71,12 @@ router.put("/:id", (req, res) => {
       },
     }
   )
-    .then((noteData) => {
-      if (!noteData) {
+    .then((dbNoteData) => {
+      if (!dbNoteData) {
         res.status(404).json({ message: "No note found with this id" });
         return;
       }
-      res.json(noteData);
+      res.json(dbNoteData);
     })
     .catch((err) => {
       console.log(err);
@@ -91,12 +91,12 @@ router.delete("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((noteData) => {
-      if (!noteData) {
+    .then((dbNoteData) => {
+      if (!dbNoteData) {
         res.status(404).json({ message: "No note found with this id!" });
         return;
       }
-      res.json(noteData);
+      res.json(dbNoteData);
     })
     .catch((err) => {
       console.log(err);

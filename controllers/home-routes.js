@@ -1,5 +1,4 @@
 const router = require("express").Router();
-
 const { User, Notebook, Note } = require("../models");
 
 // get all notebooks for homepage
@@ -13,8 +12,8 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((notebookData) => {
-      const notebooks = notebookData.map((notebook) =>
+    .then((dbNotebookData) => {
+      const notebooks = dbNotebookData.map((notebook) =>
         notebook.get({ plain: true })
       );
 
@@ -30,7 +29,7 @@ router.get("/", (req, res) => {
 });
 
 // get a single notebook (when user clicks on a notebook)
-router.get("notebooks/:id", (req, res) => {
+router.get("/notebooks/:id", (req, res) => {
   Notebook.findOne({
     where: {
       id: req.params.id,
@@ -47,12 +46,12 @@ router.get("notebooks/:id", (req, res) => {
       },
     ],
   })
-    .then((notebookData) => {
-      if (!notebookData) {
+    .then((dbNotebookData) => {
+      if (!dbNotebookData) {
         res.status(404).json({ message: "No notebook found with this id" });
         return;
       }
-      const notebook = notebookData.get({ plain: true });
+      const notebook = dbNotebookData.get({ plain: true });
 
       res.render("view-notebook", {
         notebook,
@@ -73,6 +72,15 @@ router.get("/login", (req, res) => {
   }
 
   res.render("login");
+});
+
+router.get("/signup", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("signup");
 });
 
 module.exports = router;

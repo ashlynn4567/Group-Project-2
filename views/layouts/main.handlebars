@@ -9,12 +9,12 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link
+    {{! <link
       href="https://unpkg.com/purecss@2.1.0/build/pure-min.css"
       rel="stylesheet"
       integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH"
       crossorigin="anonymous"
-    />
+    /> }}
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Study Buddy</title>
   </head>
@@ -35,6 +35,9 @@
             <li>
               <a href="/login" class="link">Log In</a>
             </li>
+            <li>
+              <a href="/signup" class="link">Sign Up</a>
+            </li>
           {{/if}}
         </ul>
       </nav>
@@ -45,6 +48,6 @@
     </main>
   </body>
 </html>
-{{! #if loggedIn }}
-{{! <script src="/javascript/logout.js"></script> }}
-{{! /if }}
+{{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+{{/if}}

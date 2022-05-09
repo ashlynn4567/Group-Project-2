@@ -1,0 +1,20 @@
+<section>
+  <h2>{{notebook.notebook_name}}</h2>
+{{#if notebook.notes}}
+    <div class="notes">
+        <article class="note">
+                <h4>Notes</h3>
+                {{#each notebook.notes}}
+                <div class="note">
+                    <p>
+                    {{question}}
+                    </p>
+                    <p>
+                    {{answer}}
+                    </p>
+                {{/each}}
+            </div>
+        </article>
+    </div>
+{{/if}}
+</section>
