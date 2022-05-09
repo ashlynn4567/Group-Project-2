@@ -1,6 +1,6 @@
+const path = require("path");
 const express = require("express");
 const session = require("express-session");
-const path = require("path");
 const exphbs = require("express-handlebars");
 const helpers = require("./utils/helpers");
 
@@ -24,14 +24,14 @@ app.use(session(sess));
 
 const hbs = exphbs.create({ helpers });
 
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(require("./controllers/"));
-
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
 
 // sync sequelize models to the database, then turn on the server
 sequelize.sync({ force: false }).then(() => {

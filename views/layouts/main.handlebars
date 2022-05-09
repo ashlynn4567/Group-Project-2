@@ -35,6 +35,9 @@
             <li>
               <a href="/login" class="link">Log In</a>
             </li>
+            <li>
+              <a href="/signup" class="link">Sign Up</a>
+            </li>
           {{/if}}
         </ul>
       </nav>
@@ -45,6 +48,6 @@
     </main>
   </body>
 </html>
-{{! #if loggedIn }}
-{{! <script src="/javascript/logout.js"></script> }}
-{{! /if }}
+{{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+{{/if}}
