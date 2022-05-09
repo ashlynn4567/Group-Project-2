@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Notebook, User, Note } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // get all notebooks
 router.get("/", (req, res) => {
@@ -55,7 +56,7 @@ router.get("/:id", (req, res) => {
 });
 
 // create new notebook
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
   // expects {notebook_name: 'Spanish Numbers', user_id: 1}
   Notebook.create({
     notebook_name: req.body.notebook_name,
@@ -69,7 +70,7 @@ router.post("/", (req, res) => {
 });
 
 // edit notebook title
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   // expects {notebook_name: 'Spanish Animals'}
   Notebook.update(
     {
@@ -95,7 +96,7 @@ router.put("/:id", (req, res) => {
 });
 
 // delete notebook
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   Notebook.destroy({
     where: {
       id: req.params.id,

@@ -1,5 +1,4 @@
 const router = require("express").Router();
-
 const { User, Notebook, Note } = require("../models");
 
 // get all notebooks for homepage
@@ -30,7 +29,7 @@ router.get("/", (req, res) => {
 });
 
 // get a single notebook (when user clicks on a notebook)
-router.get("notebooks/:id", (req, res) => {
+router.get("/notebooks/:id", (req, res) => {
   Notebook.findOne({
     where: {
       id: req.params.id,
@@ -73,6 +72,15 @@ router.get("/login", (req, res) => {
   }
 
   res.render("login");
+});
+
+router.get("/signup", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("signup");
 });
 
 module.exports = router;

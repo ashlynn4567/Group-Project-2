@@ -33,7 +33,7 @@ router.get("/", withAuth, (req, res) => {
 });
 
 // get a single notebook (view notebook)
-router.get("notebooks/:id", withAuth, (req, res) => {
+router.get("/notebooks/:id", withAuth, (req, res) => {
   Notebook.findOne({
     where: {
       id: req.params.id,
