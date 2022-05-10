@@ -1,0 +1,45 @@
+<h2>{{notebook.notebook_name}}</h2>
+
+<div class="form edit-form">
+  <h3>Add New Note</h3>
+  <form id="add-note-form">
+    <label for="note-subject">Enter Subject</label>
+    <input
+      type="text"
+      placeholder="Subject"
+      id="note-subject"
+      class="form-input"
+    />
+
+    <label for="note-body">Add New Note</label>
+    <input
+      type="text"
+      placeholder="Add New Notes"
+      id="note-body"
+      class="edit"
+    />
+    <div class="container">
+      <button type="submit" class="button">Add New Note</button>
+    </div>
+  </form>
+</div>
+
+<section>
+  {{#if notebook.notes}}
+    <div class="notes">
+      <h3>Notes</h3>
+      {{#each notebook.notes}}
+        <article class="card note">
+          <div class="card-header">
+            <h5>{{question}}</h5>
+          </div>
+          <div class="card-body">
+            <p>
+              {{answer}}
+            </p>
+          </div>
+        </article>
+      {{/each}}
+    </div>
+  {{/if}}
+</section>
