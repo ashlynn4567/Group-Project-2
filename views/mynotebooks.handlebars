@@ -1,3 +1,19 @@
+<div></br></div>
+{{#if notebooks.length}}
+  <section>
+    <h2>My Notebooks</h2>
+    <div class="notebooks" id="user-notebooks">
+      {{#each notebooks}}
+        <article class="notebook">
+          <a class="single-user-notebook" href="/mynotebooks/edit/{{id}}">
+            <span>{{notebook_name}}</span>
+          </a>
+        </article>
+      {{/each}}
+    </div>
+  </section>
+{{/if}}
+
 <section>
   <div class="form">
     <h3>Create New Notebook</h3>
@@ -11,78 +27,9 @@
         placeholder="Enter Notebook Name"
       />
 
-      <label for="subject-input" class="form-label">Subject</label>
-      <div>
-        <div class="col-auto mb-2">
-          <input
-            type="radio"
-            id="math-input"
-            name="subject"
-            value="math"
-            checked=""
-          />
-          <label for="math-input">Math</label>
-        </div>
-        <div class="col-auto mb-2">
-          <input
-            type="radio"
-            id="science-input"
-            name="subject"
-            value="science"
-          />
-          <label for="science-input">Science</label>
-        </div>
-        <div class="col-auto mb-2">
-          <input
-            type="radio"
-            id="writing-input"
-            name="subject"
-            value="writing"
-          />
-          <label for="writing-input">Writing</label>
-        </div>
-        <div class="col-auto mb-2">
-          <input
-            type="radio"
-            id="history-input"
-            name="subject"
-            value="history"
-          />
-          <label for="history-input">History</label>
-        </div>
-        <div class="col-auto mb-2">
-          <input
-            type="radio"
-            id="economics-input"
-            name="subject"
-            value="economics"
-          />
-          <label for="economics-input">Economics</label>
-        </div>
-        <div class="col-auto mb-2">
-          <input type="radio" id="other-input" name="subject" value="other" />
-          <label for="other-input">Other</label>
-        </div>
-      </div>
-
-      <button type="submit" class="btn">Create Notebook</button>
+      <button type="submit" class="button">Create Notebook</button>
     </form>
   </div>
 </section>
-
-{{#if notebooks.length}}
-  <section>
-    <h2>My Notebooks</h2>
-    <div class="notebooks" id="user-notebooks">
-      {{#each notebooks}}
-        <article class="notebook">
-          <a class="single-user-notebook" href="/notebooks/edit/{{id}}">
-            <span>{{notebook_name}}</span>
-          </a>
-        </article>
-      {{/each}}
-    </div>
-  </section>
-{{/if}}
 
 <script src="/javascript/add-notebook.js"></script>

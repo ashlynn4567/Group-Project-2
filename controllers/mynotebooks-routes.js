@@ -32,43 +32,7 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 
-// get a single notebook (view notebook)
-router.get("/notebooks/:id", withAuth, (req, res) => {
-  Notebook.findOne({
-    where: {
-      id: req.params.id,
-    },
-    attributes: ["id", "notebook_name", "created_at"],
-    include: [
-      {
-        model: Note,
-        attributes: ["id", "question", "answer", "notebook_id"],
-      },
-      {
-        model: User,
-        attributes: ["username"],
-      },
-    ],
-  })
-    .then((dbNotebookData) => {
-      if (!dbNotebookData) {
-        res.status(404).json({ message: "No notebook found with this id" });
-        return;
-      }
-      const notebook = dbNotebookData.get({ plain: true });
-
-      res.render("view-notebook", {
-        notebook,
-        loggedIn: req.session.loggedIn,
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-// edit notebook
+// edit notebook (can add notes)
 router.get("/edit/:id", withAuth, (req, res) => {
   Notebook.findByPk(req.params.id, {
     attributes: ["id", "notebook_name", "created_at"],
@@ -89,6 +53,38 @@ router.get("/edit/:id", withAuth, (req, res) => {
 
         res.render("edit-notebook", {
           notebook,
+          loggedIn: true,
+        });
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+});
+
+// edit note
+router.get("/edit/note/:id", withAuth, (req, res) => {
+  Note.findByPk(req.params.id, {
+    attributes: ["id", "question", "answer"],
+    include: [
+      {
+        model: Notebook,
+        attributes: ["id", "notebook_name", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+    ],
+  })
+    .then((dbNoteData) => {
+      if (dbNoteData) {
+        const note = dbNoteData.get({ plain: true });
+
+        res.render("edit-note", {
+          note,
           loggedIn: true,
         });
       } else {

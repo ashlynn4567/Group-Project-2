@@ -1,0 +1,24 @@
+<div></br></div>
+<h2>{{notebook.notebook_name}}</h2>
+
+<div class="form edit-form">
+  <h3>Edit Note</h3>
+  </br>
+  <form id="edit-note-form">
+    <input
+      type="text"
+      name="note-subject"
+      class="form-input"
+      value="{{note.question}}"
+    />
+
+    <textarea type="text" name="note-body" class="edit">{{note.answer}}</textarea>
+    <div class="container">
+      <button type="submit" class="button">Update Note</button>
+      </br>
+      <button type="button" id="delete-btn" class="delete-button">Delete Note</button>
+    </div>
+  </form>
+</div>
+
+<script src="/javascript/edit-note.js"></script>

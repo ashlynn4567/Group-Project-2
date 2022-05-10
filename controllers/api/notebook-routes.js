@@ -69,32 +69,6 @@ router.post("/", withAuth, (req, res) => {
     });
 });
 
-// edit notebook title
-router.put("/:id", withAuth, (req, res) => {
-  // expects {notebook_name: 'Spanish Animals'}
-  Notebook.update(
-    {
-      notebook_name: req.body.notebook_name,
-    },
-    {
-      where: {
-        id: req.params.id,
-      },
-    }
-  )
-    .then((dbNotebookData) => {
-      if (!dbNotebookData) {
-        res.status(404).json({ message: "No notebook found with this id" });
-        return;
-      }
-      res.json(dbNotebookData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
 // delete notebook
 router.delete("/:id", withAuth, (req, res) => {
   Notebook.destroy({

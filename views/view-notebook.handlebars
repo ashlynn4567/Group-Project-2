@@ -1,0 +1,19 @@
+<div></br></div>
+<h2>{{notebook.notebook_name}}</h2>
+
+{{#if notebook.notes}}
+  <div class="notes">
+    {{#each notebook.notes}}
+      <article class="card note">
+        <div class="card-header">
+          <h5>{{question}}</h5>
+        </div>
+        <div class="card-body">
+          <p>
+            {{answer}}
+          </p>
+        </div>
+      </article>
+    {{/each}}
+  </div>
+{{/if}}
