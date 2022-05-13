@@ -6,7 +6,7 @@ A site that allows users to create, save, and share personalized notes. The app 
 
 ## Usage and Features
 
-This is how the main page appears to users. The page is responsive, adapting to multiple screen sizes.
+This is Study Buddy appears to users. The page is responsive, adapting to multiple screen sizes.
 
 <p align="center">
 <img alt="screenshot of Study Buddy homepage" src="./content/images/study-buddy-home.jpeg"/>
@@ -14,11 +14,6 @@ This is how the main page appears to users. The page is responsive, adapting to 
 <img alt="screenshot of Study Buddy notebook" src="./content/images/study-buddy-notebook.jpeg"/>
 </p>
 
-### Challenges in Development
-
-The team 
-
-### Successes in Development
 
 
 
@@ -49,15 +44,17 @@ In the future, I would like to add the following improvements:
 - A search function where a user can query a keyword and search notebooks for that term. This function could be expanded to a filtering system where users can also filter by a notebook type.
 - The ability to make a notebook private or public, giving the user freedom to hide certain notebooks from other's view. 
 
-I'm a big believer in always refactoring code to improve it's functionality. If you would like to suggest your own improvements, you can reach our development team at the links below.
+We're always interested in refactoring code to improve it's functionality. If you would like to suggest your own improvements, you can reach our development team at the links below.
+
+## Credits
 
 ### Contributors
 
-| **Ashley Smith**                                    | **Kelsey Alderman**                                                 | **Jackson Mason**                                                        | **Mohamed Abdullahi**                                            |
-| --------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
-| - [Github](https://github.com/ashlynn4567)          | - [Github](https://github.com/kelseyalderman)                       | - [Github](https://github.com/ShibuyaCho)                                | - [Github](https://github.com/mo9399)                            |
-| - [LinkedIn](www.linkedin.com/in/Ashley-Lynn-Smith) | - [LinkedIn](https://www.linkedin.com/in/kelsey-alderman-79019922b) | - [LinkedIn](https://www.linkedin.com/mwlite/in/jackson-mason-28b043228) | - [LinkedIn](http://linkedin.com/in/mohamed-abdullahi-944b2922b) |
+| **Ashley Smith**                                    | **Kelsey Alderman**                                                 | **Mohamed Abdullahi**                                            |
+| --------------------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| - [Github](https://github.com/ashlynn4567)          | - [Github](https://github.com/kelseyalderman)                       | - [Github](https://github.com/mo9399)                            |
+| - [LinkedIn](www.linkedin.com/in/Ashley-Lynn-Smith) | - [LinkedIn](https://www.linkedin.com/in/kelsey-alderman-79019922b) | - [LinkedIn](http://linkedin.com/in/mohamed-abdullahi-944b2922b) |
 
-## Credits
+### Acknowledgements
 
 This project was built with the help of the University of Oregon's Coding Boot Camp.
