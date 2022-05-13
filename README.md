@@ -1,31 +1,55 @@
-# Studdy Buddy
+# Study Buddy
 
 ## Description
 
 A site that allows users to create, save, and share personalized notes. The app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
+## Usage and Features
+
+This is how the main page appears to users. The page is responsive, adapting to multiple screen sizes.
+
+<p align="center">
+<img alt="screenshot of Study Buddy homepage" src="./content/images/study-buddy-home.jpeg"/>
+<img alt="screenshot of Study Buddy user dashboard" src="./content/images/study-buddy-mynotebooks.jpeg"/>
+<img alt="screenshot of Study Buddy notebook" src="./content/images/study-buddy-notebook.jpeg"/>
+</p>
+
+### Challenges in Development
+
+The team 
+
+### Successes in Development
+
+
+
 ## Built With
 
-- JavaScript
-- Node.js
-- Express.js
-- MySQL2
-- Sequelize
-- dotenv
-- bcrypt
-- Handlebars.js
-- CSS
-- Heroku
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Node.js](https://nodejs.org/en/)
+- [Express.js](https://www.npmjs.com/package/express)
+- [mySQL2](https://www.npmjs.com/package/mysql2)
+- [Sequelize.js](https://sequelize.org/)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [bcrypt](https://www.npmjs.com/package/bcrypt)
+- [Handlebars.js](https://handlebarsjs.com/)
+- [Heroku](https://www.heroku.com/)
 
-## Website
+## Deployed Site
 
-https://afternoon-refuge-77491.herokuapp.com/
+Follow this [link](https://afternoon-refuge-77491.herokuapp.com/) to view and use our site! 
 
-## Preview
+## Suggestion Box
 
-![Screenshot of Study Buddy Homepage](content/images/study-buddy-home.jpeg)
-![Screenshot of Study Buddy User Dashboard](content/images/study-buddy-mynotebooks.jpeg)
-![Screenshot of Study Buddy Notebook](content/images/study-buddy-notebook.jpeg)
+In the future, I would like to add the following improvements:
+
+- A profile page for users that shows their information and notebooks.
+- A "favorite" system where you can save your favorite or most-used notebooks for easy access.
+- An organizational sorting system to file your notebooks into folders.
+- A search function where a user can query a keyword and search notebooks for that term. This function could be expanded to a filtering system where users can also filter by a notebook type.
+- The ability to make a notebook private or public, giving the user freedom to hide certain notebooks from other's view. 
+
+I'm a big believer in always refactoring code to improve it's functionality. If you would like to suggest your own improvements, you can reach our development team at the links below.
 
 ### Contributors
 
@@ -33,3 +57,7 @@ https://afternoon-refuge-77491.herokuapp.com/
 | --------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
 | - [Github](https://github.com/ashlynn4567)          | - [Github](https://github.com/kelseyalderman)                       | - [Github](https://github.com/ShibuyaCho)                                | - [Github](https://github.com/mo9399)                            |
 | - [LinkedIn](www.linkedin.com/in/Ashley-Lynn-Smith) | - [LinkedIn](https://www.linkedin.com/in/kelsey-alderman-79019922b) | - [LinkedIn](https://www.linkedin.com/mwlite/in/jackson-mason-28b043228) | - [LinkedIn](http://linkedin.com/in/mohamed-abdullahi-944b2922b) |
+
+## Credits
+
+This project was built with the help of the University of Oregon's Coding Boot Camp.
